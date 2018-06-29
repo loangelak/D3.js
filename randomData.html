@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <title>D3 | Random Data - Bar Chart</title>
+        <link rel='stylesheet' href='src/css/svg_bar.css'>
+        <script src='https://d3js.org/d3.v4.min.js'></script>
+    </head>
+    
+    <body>
+        <script type='text/javascript'>
+            var dataset = []; //empty array
+            for(var i = 0; i <25; i++){ //loop
+                var newNumber = Math.random() * 30; //random number 
+                dataset = dataset.concat(newNumber); //add new number to array
+            }
+            
+            d3.select('body').selectAll('div')
+                .data(dataset)
+                .enter()
+                .append('div')
+                .attr('class', 'bar')
+                .style('height', function(d){
+                    var barHeight = d * 5; 
+                    return barHeight + 'px'; 
+            });
+        </script>
+    </body>
+</html>
