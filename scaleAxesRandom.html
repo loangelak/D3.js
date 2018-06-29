@@ -52,16 +52,20 @@
                 .domain([0,d3.max(dataset, function(d){ return d[1]; })])
                 .range([2,5]);
             
+            var formatAsPercentage = d3.format(".1%"); 
+            
             //define x axis
             var xAxis = d3.svg.axis()
                 .scale(xScale)
                 .orient('bottom')
-                .ticks(5); 
+                .ticks(5)
+                .tickFormat(formatAsPercentage);
             //define y axis
             var yAxis = d3.svg.axis()
                 .scale(yScale)
                 .orient('left')
-                .ticks(5); 
+                .ticks(5)
+                .tickFormat(formatAsPercentage); 
             
             //create svg element
             var svg = d3.select('body')
